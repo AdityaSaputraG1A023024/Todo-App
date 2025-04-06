@@ -14,19 +14,19 @@
     padding: 10px;
 }
 
-.todo-app{
+.todo-app {
     width: 100%;
     max-width: 540px;
-    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* untuk Safari */
+    -webkit-backdrop-filter: blur(10px); /* Untuk Safari */
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
-    padding: 40px 30px 70px;
-    margin: 100px auto 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
 
 .row {
     display: flex;
@@ -41,7 +41,7 @@ input {
     flex: 1;
     border: none;
     outline: none;
-    background: #edeef0; /* Beri background hanya pada input */
+    background: #ffffff; /* Beri background hanya pada input */
     padding: 14px 20px;
     font-size: 16px;
     border-radius: 25px;
@@ -61,6 +61,7 @@ button {
 button:hover {
     background-color: #261FB3;
 }
+
 ul li {
     list-style: none;
     font-size: 17px;
@@ -72,6 +73,9 @@ ul li {
     padding: 12px 16px 12px 50px;
     position: relative;
     overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 20px; /* Ujung lebih tumpul */
+    margin-bottom: 10px; /* Jarak antar item */
 }
 
 ul li::before {
@@ -80,11 +84,11 @@ ul li::before {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background-image: url(/images/circle.png);
+    background-image: url(images/circle.png);
     background-size: cover;
     background-position: center;
     top: 50%;
-    left: 8px;
+    left: 12px;
     transform: translateY(-50%);
 }
 
@@ -94,7 +98,7 @@ ul li.checked {
 }
 
 ul li.checked::before {
-    background-image: url(/images/check.png);
+    background-image: url(images/check.png);
 }
 
 /* Teks atau input inline */
@@ -118,30 +122,14 @@ ul li .inline-input {
     background: #fff;
 }
 
-/* Delete button */
-ul li span.delete {
-    position: absolute;
-    right: 0;
-    top: 5px;
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-    color: #555;
-    line-height: 40px;
-    text-align: center;
-    border-radius: 50%;
-    cursor: pointer;
+ul li.checked.editing {
+    text-decoration: none;
+    color: #000;
 }
 
-ul li span.delete:hover {
-    background-color: #edeef0;
-    color: #ff5945;
-}
-
-/* Edit button */
-ul li span.edit {
+/* Tombol ikon dasar (edit & delete) */
+ul li span.icon {
     position: absolute;
-    right: 40px;
     top: 5px;
     width: 40px;
     height: 40px;
@@ -151,11 +139,28 @@ ul li span.edit {
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Tombol Edit */
+ul li span.edit {
+    right: 50px;
 }
 
 ul li span.edit:hover {
     background-color: #edeef0;
     color: #4CAF50;
+}
+
+/* Tombol Delete */
+ul li span.delete {
+    right: 5px;
+    font-size: 22px;
+}
+
+ul li span.delete:hover {
+    background-color: #edeef0;
+    color: #ff5945;
 }
 
 .typing-title {
@@ -171,6 +176,10 @@ ul li span.edit:hover {
     margin-left: auto;
     margin-right: auto;
     animation: blink-caret 0.75s step-end infinite;
+}
+
+h2.typing-title {
+    height: 40px; /* atau sesuai tinggi teks kamu */
 }
 
 @keyframes blink-caret {

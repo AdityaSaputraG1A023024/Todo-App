@@ -11,6 +11,9 @@ function addTask() {
     const textSpan = document.createElement("span");
     textSpan.className = "task-text";
     textSpan.textContent = value;
+    textSpan.onclick = () => {
+        li.classList.toggle("checked");
+    };
     li.appendChild(textSpan);
 
     // Tombol Edit
@@ -27,16 +30,13 @@ function addTask() {
     const delBtn = document.createElement("span");
     delBtn.className = "icon delete";
     delBtn.innerHTML = '<i class="uil uil-trash"></i>';
-    
     delBtn.onclick = (e) => {
         e.stopPropagation();
-        li.classList.add("fall"); // jalankan animasi
-    
+        li.classList.add("fall");
         li.addEventListener("transitionend", () => {
-            li.remove(); // hapus setelah animasi selesai
+            li.remove();
         });
     };
-    
     li.appendChild(delBtn);
 
     listContainer.appendChild(li);
@@ -53,6 +53,7 @@ function enableInlineEdit(li) {
     input.value = currentText;
 
     li.replaceChild(input, textEl);
+    li.classList.add("editing");
     input.focus();
 
     input.addEventListener("blur", () => {
@@ -60,14 +61,20 @@ function enableInlineEdit(li) {
         const newSpan = document.createElement("span");
         newSpan.className = "task-text";
         newSpan.textContent = newText;
+
+        // Pasang ulang onclick agar bisa ceklis
+        newSpan.onclick = () => {
+            li.classList.toggle("checked");
+        };
+
         li.replaceChild(newSpan, input);
+        li.classList.remove("editing");
     });
 
     input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") input.blur();
     });
 }
-
 // Menandai item checklist
 listContainer.addEventListener("click", function (e) {
     if (e.target.tagName === "LI") {
@@ -79,14 +86,24 @@ const text = "Todo App";
 let index = 0;
 
 function typeEffect() {
-    if (index < text.length) {
-        document.getElementById("typed-text").textContent += text.charAt(index);
+    const typedText = document.getElementById("typed-text");
+
+    if (index <= text.length) {
+        typedText.textContent = text.substring(0, index);
         index++;
-        setTimeout(typeEffect, 150); // kecepatan ketik
+        setTimeout(typeEffect, 150);
+    } else {
+        // Setelah selesai, reset dan ulangi
+        setTimeout(() => {
+            typedText.textContent = "";
+            index = 0;
+            typeEffect();
+        }, 1000); // jeda sebelum ulang
     }
 }
 
 typeEffect();
+
 
 
 
