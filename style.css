@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', 'sans-serif';   
+    font-family: 'Poppins', sans-serif;
 }
 
-.container{
+.container {
     width: 100%;
     min-height: 100vh;
     background: url(images/Back.jpg);
@@ -16,32 +17,30 @@
 
 .todo-app {
     width: 100%;
-    max-width: 540px;
+    max-width: 550px;
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* Untuk Safari */
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-
 .row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px; /* Tambahkan jarak antar elemen */
+    gap: 12px;
     margin-bottom: 25px;
-    background: transparent; /* Hapus background dari seluruh row */
+    background: transparent;
 }
 
 input {
     flex: 1;
     border: none;
     outline: none;
-    background: #ffffff; /* Beri background hanya pada input */
+    background: #ffffff;
     padding: 14px 20px;
     font-size: 16px;
     border-radius: 25px;
@@ -56,6 +55,7 @@ button {
     font-size: 16px;
     border-radius: 25px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -66,7 +66,6 @@ ul li {
     list-style: none;
     font-size: 17px;
     user-select: none;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -74,8 +73,8 @@ ul li {
     position: relative;
     overflow: hidden;
     background-color: #ffffff;
-    border-radius: 20px; /* Ujung lebih tumpul */
-    margin-bottom: 10px; /* Jarak antar item */
+    border-radius: 20px;
+    margin-bottom: 10px;
 }
 
 ul li::before {
@@ -101,19 +100,17 @@ ul li.checked::before {
     background-image: url(images/check.png);
 }
 
-/* Teks atau input inline */
 ul li .task-text,
 ul li .inline-input {
     flex: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-right: 90px; /* space for buttons */
+    margin-right: 90px;
     border: none;
     background: none;
 }
 
-/* Input saat edit */
 ul li .inline-input {
     font-size: inherit;
     border: 1px solid #ccc;
@@ -127,7 +124,6 @@ ul li.checked.editing {
     color: #000;
 }
 
-/* Tombol ikon dasar (edit & delete) */
 ul li span.icon {
     position: absolute;
     top: 5px;
@@ -142,7 +138,6 @@ ul li span.icon {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Tombol Edit */
 ul li span.edit {
     right: 50px;
 }
@@ -152,7 +147,6 @@ ul li span.edit:hover {
     color: #4CAF50;
 }
 
-/* Tombol Delete */
 ul li span.delete {
     right: 5px;
     font-size: 22px;
@@ -171,7 +165,7 @@ ul li span.delete:hover {
     margin-bottom: 20px;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid #000000;
+    border-right: 3px solid #000;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -179,7 +173,7 @@ ul li span.delete:hover {
 }
 
 h2.typing-title {
-    height: 40px; /* atau sesuai tinggi teks kamu */
+    height: 40px;
 }
 
 @keyframes blink-caret {
@@ -190,6 +184,6 @@ h2.typing-title {
 
 .fall {
     transition: 0.5s;
-    transform: translateY(45rem) rotateZ(45deg);
+    transform: translateY(35rem) rotateZ(35deg);
     opacity: 0;
 }

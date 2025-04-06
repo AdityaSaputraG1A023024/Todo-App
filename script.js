@@ -7,16 +7,12 @@ function addTask() {
 
     const li = document.createElement("li");
 
-    // Buat elemen teks
     const textSpan = document.createElement("span");
     textSpan.className = "task-text";
     textSpan.textContent = value;
-    textSpan.onclick = () => {
-        li.classList.toggle("checked");
-    };
+    textSpan.onclick = () => li.classList.toggle("checked");
     li.appendChild(textSpan);
 
-    // Tombol Edit
     const editBtn = document.createElement("span");
     editBtn.className = "icon edit";
     editBtn.innerHTML = '<i class="uil uil-pen"></i>';
@@ -26,16 +22,13 @@ function addTask() {
     };
     li.appendChild(editBtn);
 
-    // Tombol Delete
     const delBtn = document.createElement("span");
     delBtn.className = "icon delete";
     delBtn.innerHTML = '<i class="uil uil-trash"></i>';
     delBtn.onclick = (e) => {
         e.stopPropagation();
         li.classList.add("fall");
-        li.addEventListener("transitionend", () => {
-            li.remove();
-        });
+        li.addEventListener("transitionend", () => li.remove());
     };
     li.appendChild(delBtn);
 
@@ -61,11 +54,7 @@ function enableInlineEdit(li) {
         const newSpan = document.createElement("span");
         newSpan.className = "task-text";
         newSpan.textContent = newText;
-
-        // Pasang ulang onclick agar bisa ceklis
-        newSpan.onclick = () => {
-            li.classList.toggle("checked");
-        };
+        newSpan.onclick = () => li.classList.toggle("checked");
 
         li.replaceChild(newSpan, input);
         li.classList.remove("editing");
@@ -75,7 +64,7 @@ function enableInlineEdit(li) {
         if (e.key === "Enter") input.blur();
     });
 }
-// Menandai item checklist
+
 listContainer.addEventListener("click", function (e) {
     if (e.target.tagName === "LI") {
         e.target.classList.toggle("checked");
@@ -93,16 +82,16 @@ function typeEffect() {
         index++;
         setTimeout(typeEffect, 150);
     } else {
-        // Setelah selesai, reset dan ulangi
         setTimeout(() => {
             typedText.textContent = "";
             index = 0;
             typeEffect();
-        }, 1000); // jeda sebelum ulang
+        }, 1000);
     }
 }
 
 typeEffect();
+
 
 
 
