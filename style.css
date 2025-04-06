@@ -10,7 +10,7 @@
 .container {
     width: 100%;
     min-height: 100vh;
-    background: url(images/Back.jpg);
+    background: url(images/Latar.jpg);
     background-size: cover;
     padding: 10px;
 }
@@ -25,6 +25,7 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .row {
@@ -57,7 +58,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 button:hover {
     background-color: #261FB3;
 }
@@ -75,7 +75,6 @@ ul li {
     margin-bottom: 10px;
 }
 
-/* Checkbox di kiri */
 ul li .checkbox {
     width: 24px;
     height: 24px;
@@ -103,7 +102,6 @@ ul li.checked .checkbox::before {
     background-image: url(images/check.png);
 }
 
-/* Teks dan input */
 ul li .task-text,
 ul li .inline-input {
     flex: 1;
@@ -133,7 +131,6 @@ ul li.checked.editing .task-text {
     color: #000;
 }
 
-/* Icon tombol */
 ul li span.icon {
     width: 36px;
     height: 36px;

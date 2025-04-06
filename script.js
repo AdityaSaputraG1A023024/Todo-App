@@ -7,7 +7,6 @@ function addTask() {
 
     const li = document.createElement("li");
 
-    // Centang lingkaran
     const checkbox = document.createElement("span");
     checkbox.className = "checkbox";
     checkbox.onclick = () => {
@@ -15,13 +14,11 @@ function addTask() {
     };
     li.appendChild(checkbox);
 
-    // Teks tugas
     const textSpan = document.createElement("span");
     textSpan.className = "task-text";
     textSpan.textContent = value;
     li.appendChild(textSpan);
 
-    // Tombol edit
     const editBtn = document.createElement("span");
     editBtn.className = "icon edit";
     editBtn.innerHTML = '<i class="uil uil-pen"></i>';
@@ -31,7 +28,6 @@ function addTask() {
     };
     li.appendChild(editBtn);
 
-    // Tombol hapus
     const delBtn = document.createElement("span");
     delBtn.className = "icon delete";
     delBtn.innerHTML = '<i class="uil uil-trash"></i>';
@@ -73,8 +69,7 @@ function enableInlineEdit(li) {
     });
 }
 
-// Efek ketik "Todo App"
-const text = "Todo App";
+const text = "Just Do It";
 let index = 0;
 
 function typeEffect() {
