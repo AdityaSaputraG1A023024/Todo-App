@@ -7,12 +7,21 @@ function addTask() {
 
     const li = document.createElement("li");
 
+    // Centang lingkaran
+    const checkbox = document.createElement("span");
+    checkbox.className = "checkbox";
+    checkbox.onclick = () => {
+        li.classList.toggle("checked");
+    };
+    li.appendChild(checkbox);
+
+    // Teks tugas
     const textSpan = document.createElement("span");
     textSpan.className = "task-text";
     textSpan.textContent = value;
-    textSpan.onclick = () => li.classList.toggle("checked");
     li.appendChild(textSpan);
 
+    // Tombol edit
     const editBtn = document.createElement("span");
     editBtn.className = "icon edit";
     editBtn.innerHTML = '<i class="uil uil-pen"></i>';
@@ -22,6 +31,7 @@ function addTask() {
     };
     li.appendChild(editBtn);
 
+    // Tombol hapus
     const delBtn = document.createElement("span");
     delBtn.className = "icon delete";
     delBtn.innerHTML = '<i class="uil uil-trash"></i>';
@@ -54,8 +64,6 @@ function enableInlineEdit(li) {
         const newSpan = document.createElement("span");
         newSpan.className = "task-text";
         newSpan.textContent = newText;
-        newSpan.onclick = () => li.classList.toggle("checked");
-
         li.replaceChild(newSpan, input);
         li.classList.remove("editing");
     });
@@ -65,12 +73,7 @@ function enableInlineEdit(li) {
     });
 }
 
-listContainer.addEventListener("click", function (e) {
-    if (e.target.tagName === "LI") {
-        e.target.classList.toggle("checked");
-    }
-});
-
+// Efek ketik "Todo App"
 const text = "Todo App";
 let index = 0;
 
@@ -89,8 +92,8 @@ function typeEffect() {
         }, 1000);
     }
 }
-
 typeEffect();
+
 
 
 
