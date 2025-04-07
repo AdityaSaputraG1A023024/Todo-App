@@ -37,15 +37,12 @@ function addTask() {
         li.addEventListener("transitionend", () => li.remove());
     };
     li.appendChild(delBtn);
-
     listContainer.appendChild(li);
     inputBox.value = "";
 }
-
 function enableInlineEdit(li) {
     const textEl = li.querySelector(".task-text");
     const currentText = textEl.textContent;
-
     const input = document.createElement("input");
     input.type = "text";
     input.className = "inline-input";
@@ -54,7 +51,6 @@ function enableInlineEdit(li) {
     li.replaceChild(input, textEl);
     li.classList.add("editing");
     input.focus();
-
     input.addEventListener("blur", () => {
         const newText = input.value.trim() || currentText;
         const newSpan = document.createElement("span");
@@ -63,18 +59,14 @@ function enableInlineEdit(li) {
         li.replaceChild(newSpan, input);
         li.classList.remove("editing");
     });
-
     input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") input.blur();
     });
 }
-
 const text = "Just Do It";
 let index = 0;
-
 function typeEffect() {
     const typedText = document.getElementById("typed-text");
-
     if (index <= text.length) {
         typedText.textContent = text.substring(0, index);
         index++;
