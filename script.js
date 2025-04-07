@@ -3,7 +3,7 @@ const listContainer = document.getElementById("list-container");
 
 function addTask() {
     const value = inputBox.value.trim();
-    if (!value) return alert("Please Enter a Task");
+    if (!value) return alert("Please Enter Your Task 📝📝");
 
     const li = document.createElement("li");
 
@@ -23,7 +23,6 @@ function addTask() {
     editBtn.className = "icon edit";
     editBtn.innerHTML = '<i class="uil uil-pen"></i>';
     editBtn.onclick = (e) => {
-        e.stopPropagation();
         enableInlineEdit(li);
     };
     li.appendChild(editBtn);
@@ -32,7 +31,6 @@ function addTask() {
     delBtn.className = "icon delete";
     delBtn.innerHTML = '<i class="uil uil-trash"></i>';
     delBtn.onclick = (e) => {
-        e.stopPropagation();
         li.classList.add("fall");
         li.addEventListener("transitionend", () => li.remove());
     };
@@ -40,6 +38,7 @@ function addTask() {
     listContainer.appendChild(li);
     inputBox.value = "";
 }
+
 function enableInlineEdit(li) {
     const textEl = li.querySelector(".task-text");
     const currentText = textEl.textContent;
@@ -63,6 +62,7 @@ function enableInlineEdit(li) {
         if (e.key === "Enter") input.blur();
     });
 }
+
 const text = "Just Do It";
 let index = 0;
 function typeEffect() {

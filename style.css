@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +12,6 @@
     background-size: cover;
     padding: 10px;
 }
-
 .todo-app {
     width: 100%;
     max-width: 550px;
@@ -26,7 +24,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
 }
-
 .row {
     display: flex;
     align-items: center;
@@ -35,7 +32,6 @@
     margin-bottom: 25px;
     background: transparent;
 }
-
 input {
     flex: 1;
     border: none;
@@ -45,7 +41,6 @@ input {
     font-size: 16px;
     border-radius: 25px;
 }
-
 button {
     border: none;
     outline: none;
@@ -73,7 +68,6 @@ ul li {
     border-radius: 20px;
     margin-bottom: 10px;
 }
-
 ul li .checkbox {
     width: 24px;
     height: 24px;
@@ -83,7 +77,6 @@ ul li .checkbox {
     cursor: pointer;
     display: inline-block;
 }
-
 ul li .checkbox::before {
     content: '';
     position: absolute;
@@ -96,11 +89,9 @@ ul li .checkbox::before {
     top: 0;
     left: 0;
 }
-
 ul li.checked .checkbox::before {
     background-image: url(images/check.png);
 }
-
 ul li .task-text,
 ul li .inline-input {
     flex: 1;
@@ -112,24 +103,20 @@ ul li .inline-input {
     font-size: 17px;
     margin-right: 10px;
 }
-
 ul li .inline-input {
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 4px 6px;
     background: #fff;
 }
-
 ul li.checked .task-text {
     text-decoration: line-through;
     color: #555;
 }
-
 ul li.checked.editing .task-text {
     text-decoration: none;
     color: #000;
 }
-
 ul li span.icon {
     width: 36px;
     height: 36px;
@@ -143,7 +130,6 @@ ul li span.icon {
     transition: background-color 0.2s ease, color 0.2s ease;
     margin-left: 8px;
 }
-
 ul li span.edit:hover {
     background-color: #edeef0;
     color: #4CAF50;
@@ -153,7 +139,6 @@ ul li span.delete:hover {
     background-color: #edeef0;
     color: #ff5945;
 }
-
 .typing-title {
     text-align: center;
     font-weight: bold;
@@ -168,17 +153,14 @@ ul li span.delete:hover {
     margin-right: auto;
     animation: blink-caret 0.75s step-end infinite;
 }
-
 h2.typing-title {
     height: 40px;
 }
-
 @keyframes blink-caret {
     50% {
         border-color: transparent;
     }
 }
-
 .fall {
     transition: 0.5s;
     transform: translateY(35rem) rotateZ(35deg);
